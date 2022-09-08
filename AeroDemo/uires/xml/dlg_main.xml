@@ -14,7 +14,7 @@ translucent="1"
     <window pos="5,[2,-5,-5" skin="skin_beauty">
       <window pos="0,0,@200,30" layout="hbox" gravity="center">
         <text text="模糊半径:"/>
-        <sliderbar size="0,-2" weight="1" name="slider_radius" min="0" max="50" value="5"/>
+        <sliderbar size="0,-2" weight="1" name="slider_radius" min="0" max="10" value="5"/>
       </window>
       <aero pos="|0,|0,@300,@100" offset="-0.5,-0.5" name="aero_test" colorBkgnd="#ff0000" alpha="100" radius="5" text="Hello Soui4" font="size:40,bold:1"/>
     </window>

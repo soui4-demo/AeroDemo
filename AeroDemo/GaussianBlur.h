@@ -3,8 +3,6 @@
 /*
  copy from https://github.com/bigt1234/FastGaussianBlur.git
 */
-#define BYTE_ALIGN 4
-#define LINEWID(x) (((x)+BYTE_ALIGN-1)/BYTE_ALIGN*BYTE_ALIGN)
 
 class CGaussianBlur
 {
@@ -16,11 +14,14 @@ public:
 
 private:
 	static void BoxBlur_4(unsigned char *scl, unsigned char *tcl, int w, int h, int ch, int r);
-	static void BoxBlurT_4(unsigned char *scl, unsigned char *tcl, int w, int h, int ch, int r);
+	static void BoxBlurV_4(unsigned char *scl, unsigned char *tcl, int w, int h, int ch, int r);
 	static void BoxBlurH_4(unsigned char *scl, unsigned char *tcl, int w, int h, int ch, int r);
 	static void BoxBlur_3(unsigned char *scl, unsigned char *tcl, int w, int h, int ch, int r);
-	static void BoxBlurT_3(unsigned char *scl, unsigned char *tcl, int w, int h, int ch, int r);
+	static void BoxBlurV_3(unsigned char *scl, unsigned char *tcl, int w, int h, int ch, int r);
 	static void BoxBlurH_3(unsigned char *scl, unsigned char *tcl, int w, int h, int ch, int r);
 	static void BoxBlur_2(unsigned char *scl, unsigned char *tcl, int w, int h, int ch, int r);
-	static void BoxesForGauss(int sigma, int *pBox, int n); // standard deviation, number of boxes;
+	static void BoxesForGauss(int sigma, int pBox[3]); // standard deviation, number of boxes;
+	static void BoxBlur_4_SSE(float *dst, float *src, int w, int h, int ch, int r);
+	static void BoxBlurH_4_SSE(float *src, float *dst, int w, int h, int ch, int r);
+	static void BoxBlurV_4_SSE(float *dst, float *src, int w, int h, int ch, int r);
 };
